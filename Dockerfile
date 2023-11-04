@@ -11,7 +11,7 @@ RUN ./install_prereq install && ./install_prereq install-unpackaged && ./get_mp3
 WORKDIR /usr/src/asterisk-13.14.0
 RUN ./configure CFLAGS='-g -O2' --libdir=/usr/lib64 && make && make install && make samples && yum -y clean all
 
-COPY asterisk_config/asterisk/ /etc/asterisk/
+COPY /config/asterisk/ /etc/asterisk/
 
 WORKDIR /root
 CMD ["/usr/sbin/asterisk", "-vvvvvvv"]
