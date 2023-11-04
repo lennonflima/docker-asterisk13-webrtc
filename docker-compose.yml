@@ -1,0 +1,15 @@
+version: '3.9'
+
+services:
+  asterisk:
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: asterisk_container
+    ports:
+      - "5060:5060"
+      - "8088:8088"
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
